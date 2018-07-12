@@ -1,6 +1,6 @@
 # instagram-clone-vue
 
-> Instagram clone built is Vue.js
+> Instagram clone built with Vue.js
 
 ## Build Setup
 
