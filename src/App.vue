@@ -4,6 +4,7 @@
 
  <section class="app">
     <headers></headers>
+    <posts></posts>
      </section> 
     </div>
      
@@ -11,10 +12,12 @@
 
 <script>
 import Headers from './components/Headers'
+import Posts from './components/Posts'
 export default {
   name: 'App',
   components: {
-      Headers
+      Headers,
+      Posts
     }
 }
 </script>
@@ -67,6 +70,6 @@ body {
   background-repeat: no-repeat;
   height: 35px;
   width: 176px;
-  text-indent: -2000%
+  text-indent: -20000%
 }
 </style>
