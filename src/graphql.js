@@ -14,27 +14,51 @@ const users = [
 const posts = [
   {
     id: "0",
-    user_id: "1",
+    user: {
+      id: "1",
+      nickname: "Joe",
+      avatar:
+        "https://res.cloudinary.com/dofiasjpi/image/upload/v1531735316/user.jpg"
+    },
     caption: "My Desktop",
-    image: "./assets/domenico-loia-310197-unsplash.jpg"
+    image:
+      "https://res.cloudinary.com/dofiasjpi/image/upload/v1531736068/domenico-loia-310197-unsplash.jpg"
   },
   {
     id: "1",
-    user_id: "1",
+    user: {
+      id: "1",
+      nickname: "Joe",
+      avatar:
+        "https://res.cloudinary.com/dofiasjpi/image/upload/v1531735316/user.jpg"
+    },
     caption: "Smoking Weed!",
-    image: "./assets/party-unsplash.jpg"
+    image:
+      "https://res.cloudinary.com/dofiasjpi/image/upload/v1531735211/party-unsplash.jpg"
   },
   {
     id: "2",
-    user_id: "1",
+    user: {
+      id: "1",
+      nickname: "Joe",
+      avatar:
+        "https://res.cloudinary.com/dofiasjpi/image/upload/v1531735316/user.jpg"
+    },
     caption: "Night View!",
-    image: "./assets/serhat-beyazkaya-672367-unsplash.jpg"
+    image:
+      "https://res.cloudinary.com/dofiasjpi/image/upload/v1531735606/serhat-beyazkaya-672367-unsplash.jpg"
   },
   {
     id: "3",
-    user_id: "1",
+    user: {
+      id: "1",
+      nickname: "Joe",
+      avatar:
+        "https://res.cloudinary.com/dofiasjpi/image/upload/v1531735316/user.jpg"
+    },
     caption: "Vacation! Vaction!",
-    image: ""
+    image:
+      "https://res.cloudinary.com/dofiasjpi/image/upload/v1531734692/raining-huang-31298-unsplash.jpg"
   }
 ];
 
