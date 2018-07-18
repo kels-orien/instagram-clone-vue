@@ -1,13 +1,5 @@
 # project: cjjq4d00e1ee40189opoksh4r
-# version: 2
-
-type Link @model {
-  id: ID! @isUnique
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  url: String!
-  description: String!
-}
+# version: 3
 
 type File @model {
   contentType: String!
@@ -21,7 +13,41 @@ type File @model {
 }
 
 type User @model {
-  createdAt: DateTime!
   id: ID! @isUnique
+  username: String! @isUnique
+  email: String @isUnique
+  password: String
+  likes: [Like!]! @relation(name: "UsersLikes")
+  posts: [Post!]! @relation(name: "UsersPosts")
+  comments: [Comment!]! @relation(name: "UsersComments")
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Post @model {
+  id: ID! @isUnique
+  image: String
+  caption: String
+  postedBy: User! @relation(name: "UsersPosts")
+  comments: [Comment!]! @relation(name: "CommentsOnPost")
+  likes: [Like!]! @relation(name: "LikesOnPost")
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Comment @model {
+  id: ID! @isUnique
+  message: String
+  post: Post! @relation(name: "CommentsOnPost")
+  postedBy: User! @relation(name: "UsersComments")
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Like @model {
+  id: ID! @isUnique
+  user: User! @relation(name: "UsersLikes")
+  post: Post! @relation(name: "LikesOnPost")
+  createdAt: DateTime!
   updatedAt: DateTime!
 }
