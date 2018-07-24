@@ -1,38 +1,34 @@
 import gql from "graphql-tag";
 
 export const ALL_POSTS_QUERY = gql`
-  query AllLinksQuery {
+  query AllPostsQuery {
     allPosts {
-      id 
+      id
       image
-      caption
+      text
       postedBy {
         id
         username
-      }
-      comments {
-        id
-        message
-        postedBy
-        createdAt
-      }
-      likes {
-        id
-        user
-        post
-        createdAt
+        image
       }
       createdAt
       updatedAt
     }
+  }
 `;
 
 export const CREATE_COMMENT_MUTATION = gql`
-  mutation CreateCommentMutation()
-
-`;
-
-export const CREATE_LIKE_MUTATION = gql`
-  mutation CreateLikeMutation()
-
+  mutation CreateCommentMutation(
+    $text: String!
+    $postId: String!
+    $userId: String!
+  ) {
+    createComment(text: $text, post: $postId, postedBy: $userId) {
+      id
+      text
+      post: post 
+      postedBy:postedBy
+      createdAt
+    }
+  }
 `;

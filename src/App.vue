@@ -26,10 +26,28 @@ export default {
 </script>
 
 <style>
+
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+textarea {
+    -webkit-appearance: textarea;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+    padding: 2px;
 }
 .app {
   background: #fafafaa8;
@@ -121,9 +139,67 @@ body {
   font-weight: bold;
 }
 
-.vjs-fade-out {
-  display: none;
-  visibility: hidden;
-  opacity: 0;
+.Ypffh {
+    background: 0 0;
+    border: 0;
+    color: #262626;
+    font-size: inherit;
+    height: 18px;
+    max-height: 80px;
+    outline: 0;
+    padding: 0;
+    resize: none;
+}
+input, textarea, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+}
+.X7cDz, .Ypffh {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+.L_LMM ._JgwE {
+    padding-right: 26px;
+}
+.sH9wk {
+    border-top: 1px solid #efefef;
+    color: #999;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    font-size: 14px;
+    line-height: 18px;
+    min-height: 56px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 16px 0;
+}
+._JgwE {
+    margin-top: 4px;
+}
+
+.eo2As {
+    padding: 0 16px;
+    padding-top: 0px;
+    padding-right: 16px;
+    padding-bottom: 0px;
+    padding-left: 16px;
 }
 </style>

@@ -17,36 +17,8 @@ Vue.config.productionTip = false;
 
 const httpLink = new HttpLink({
   // You should use an absolute URL here
-  uri:
-    "https://api.graph.cool/simple/v1/cjjq4d00e1ee40189opoksh4rhttps://api.graph.cool/simple/v1/cjjq4d00e1ee40189opoksh4r"
+  uri: "https://api.graph.cool/simple/v1/cjjq4d00e1ee40189opoksh4r"
 });
-
-const wsClient = new SubscriptionClient(
-  "wss://subscriptions.graph.cool/v1/cjjq4d00e1ee40189opoksh4r",
-  {
-    reconnect: true,
-    connectionParams: {
-      authToken: localStorage.getItem(GC_AUTH_TOKEN)
-    }
-  }
-);
-
-const authMiddleware = new ApolloLink((operation, forward) => {
-  // add the authorization to the headers
-  const token = localStorage.getItem(GC_AUTH_TOKEN);
-  operation.setContext({
-    headers: {
-      authorization: token ? `Bearer ${token}` : null
-    }
-  });
-
-  return forward(operation);
-});
-
-const httpLinkWithSubscriptions = addGraphQLSubscriptions(
-  authMiddleware.concat(httpLink),
-  wsClient
-);
 
 const apolloClient = new ApolloClient({
   link: httpLink,
@@ -69,5 +41,6 @@ new Vue({
   el: "#app",
   // 7
   provide: apolloProvider.provide(),
+  router,
   render: h => h(App)
 });

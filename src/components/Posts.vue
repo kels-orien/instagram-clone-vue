@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h4 v-if="loading">Loading...</h4>
         <post
          v-for="post in allPosts"
          :key="post.id"
@@ -8,18 +9,24 @@
         </div>
 </template>
 
-<script>
+<script> 
 import Post from './Post';
-import  {userData} from '../graphql';
+import  {ALL_POSTS_QUERY} from './constants/graphql';
 export default {
     name: 'Posts',
     data () {
         return {
-            allPosts: userData.posts,
+            loading: 0,
         }
     },
     components: {
         Post
+    },
+    apollo: {
+        allPosts : {
+             query:ALL_POSTS_QUERY
+        }
+       
     }
 }
 </script>
