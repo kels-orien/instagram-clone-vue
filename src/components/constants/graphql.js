@@ -18,16 +18,11 @@ export const ALL_POSTS_QUERY = gql`
 `;
 
 export const CREATE_COMMENT_MUTATION = gql`
-  mutation CreateCommentMutation(
-    $text: String!
-    $postId: String!
-    $userId: String!
-  ) {
-    createComment(text: $text, post: $postId, postedBy: $userId) {
+  mutation CreateCommentMutation($text: String!, $postId: String!) {
+    createComment(post{id:$postId }, text: $text) {
       id
       text
-      post: post 
-      postedBy:postedBy
+      post
       createdAt
     }
   }
