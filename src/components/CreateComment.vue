@@ -31,12 +31,13 @@ export default {
          console.log("comment", this.userId);
         const {text} = this.$data
         const userId = this.userId
-        const id = this.postId
+        const postId = this.postId
         this.$apollo.mutate({
             mutation: CREATE_COMMENT_MUTATION,
             variables: {
                 text,
-                id
+                postId,
+                userId
             }
          })
         this.text = "";
