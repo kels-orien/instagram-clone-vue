@@ -1,14 +1,8 @@
 <template>
   <div id="app">
     
-
- <section class="app">
-    <headers></headers>
-    <section class="main">
-       <posts></posts>
-    </section>
-   
-     </section> 
+    <login></login>
+ 
     </div>
      
 </template>
@@ -16,11 +10,13 @@
 <script>
 import Headers from './components/Headers'
 import Posts from './components/Posts'
+import Login from './components/Login'
 export default {
   name: 'App',
   components: {
       Headers,
-      Posts
+      Posts,
+      Login
     }
 }
 </script>
@@ -150,19 +146,7 @@ textarea {
     padding: 0;
     resize: none;
 }
-input, textarea, select, button {
-    text-rendering: auto;
-    color: initial;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-    margin: 0em;
-    font: 400 13.3333px Arial;
-}
+
 .X7cDz, .Ypffh {
     display: -webkit-box;
     display: -webkit-flex;
@@ -202,4 +186,285 @@ input, textarea, select, button {
     padding-bottom: 0px;
     padding-left: 16px;
 }
+
+.E3X2T {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+_3Laht, .o64aR {
+    background-color: #fafafa;
+    padding-top: 140px;
+}
+
+.SCxLW {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-ordinal-group: 5;
+    -webkit-order: 4;
+    -ms-flex-order: 4;
+    order: 4;
+}
+.tbpKJ {
+    min-height: 100%;
+    overflow: hidden;
+    padding-bottom: 44px;
+}
+
+.agXmL, .tbpKJ {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+@media (max-width: 450px)
+{
+  .rgFsT {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 0;
+    max-width: 100%;
+}
+}
+
+
+.rgFsT {
+    color: #262626;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 12px;
+    max-width: 350px;
+}
+
+@media (max-width: 450px)
+{
+  .gr27e {
+    background-color: transparent;
+    border: 0;
+}
+}
+
+
+
+.gr27e {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 10px 0;
+}
+.NXVPg {
+    margin: 22px auto 12px;
+}
+
+.Szr5J {
+    display: block;
+    overflow: hidden;
+    text-indent: 110%;
+    white-space: nowrap;
+}
+.coreSpriteLoggedOutWordmark, .coreSpriteMobileNavDirect {
+    background-repeat: no-repeat;
+    background-image: url(./assets/instagram-sprite.png);
+    background-position: -99px -264px; 
+    width: 174px;
+    height: 51px;
+}
+
+.EPjEi {
+    margin-bottom: 15px;
+}
+
+.HmktE {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.-MzZI, .Et89U {
+    margin: 0 40px 6px;
+}
+
+._2hvTZ {
+    border: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 0;
+    -ms-flex: 1 0 0;
+    flex: 1 0 0px;
+    margin: 0;
+    outline: 0;
+    overflow: hidden;
+    padding: 9px 0 7px 8px;
+    text-overflow: ellipsis;
+}
+
+
+
+._9GP1n {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 3px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #262626;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;  
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    font-size: 14px;
+    position: relative;
+    -webkit-appearance: none;
+    width: 100%;
+    border: 1px solid #efefef;
+}
+
+._2hvTZ, ._9GP1n {
+    background: #fafafa;
+}
+
+.zyHYP {
+    -webkit-appearance: none;
+}
+
+
+
+.f0n8F {
+    height: 36px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 0;
+    -ms-flex: 1 0 0;
+    flex: 1 0 0;
+    padding: 0;
+    position: relative;
+    margin: 0;
+}
+
+._9nyy2 {
+    color: #999;
+    font-size: 12px;
+    height: 36px;
+    left: 8px;
+    line-height: 36px;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    text-overflow: ellipsis;
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    -webkit-transition: -webkit-transform ease-out .1s;
+    transition: transform ease-out .1s;
+    transition: transform ease-out .1s,-webkit-transform ease-out .1s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.f0n8F .pexuQ {
+    font-size: 16px;
+}
+
+.i24fI {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    height: 100%;
+    padding-right: 8px;
+    vertical-align: middle;
+}
+
+.-Qhn2 {
+    margin: 8px 40px;
+}
+._1OSdk {
+    display: block;
+    position: relative;
+}
+._5f5mN {
+    -webkit-appearance: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 26px;
+    outline: 0;
+    overflow: hidden;
+     text-align: center;
+    text-overflow: ellipsis;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    width: 100%;
+}
+ 
+.pm766 {
+    opacity: 9;
+}
+.jIbKX, .m4t9r.jIbKX {
+    background: #3897f0;
+    border-color: #3897f0;
+    color: #fff;
+}
+input, textarea, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+}
+
 </style>

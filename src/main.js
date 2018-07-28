@@ -42,5 +42,8 @@ new Vue({
   // 7
   provide: apolloProvider.provide(),
   router,
+  created() {
+        this.$router.push('/login')
+  },
   render: h => h(App)
 });
