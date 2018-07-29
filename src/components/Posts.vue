@@ -11,7 +11,7 @@
 
 <script> 
 import Post from './Post';
-import  {ALL_POSTS_QUERY} from './constants/graphql';
+import  {ALL_POSTS_QUERY} from '../constants/graphql';
 export default {
     name: 'Posts',
     data () {

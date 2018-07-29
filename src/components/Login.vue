@@ -9,9 +9,9 @@
                   <div class="EPjEi">
                      <form class="HmktE" method="post">
                      <div class="-MzZI">
-                        <div class="_9GP1n   ">
+                        <div class="_9GP1n">
                            <div class="f0n8F "><label  class="_9nyy2">Email</label>
-                              <input class="_2hvTZ pexuQ zyHYP"     v-model="username" aria-label="email" aria-required="true" autocapitalize="off" autocorrect="off" maxlength="75" name="username" type="text" value="">
+                              <input class="_2hvTZ pexuQ zyHYP"     v-model="email" aria-label="email" aria-required="true" autocapitalize="off" autocorrect="off" maxlength="75" name="username" type="text" value="">
                            </div>
                            <div class="i24fI"></div>
                         </div>
@@ -36,14 +36,40 @@
 </template>
 
 <script>
+ import {SIGNIN_USER_MUTATION } from '../constants/graphql'
+ import { GC_USER_ID, GC_AUTH_TOKEN } from '../constants/settings'
 export default {
     name:"Login",
     data () {
         return {
-            username:"",
+            email:"",
             password:""
         }
     },
+    methods: {
+        login() {
+            const { email, password } = this.$data
+            this.$apollo.mutate({
+            mutation: SIGNIN_USER_MUTATION,
+            variables: {
+              email,
+              password
+            }
+          }).then((result) => {
+            const id = result.data.signinUser.user.id
+            const token = result.data.signinUser.token
+            this.saveUserData(id, token)
+            this.$router.push({path: '/'})
+          }).catch((error) => {
+            alert(error)
+          })
+        },
+        saveUserData (id, token) {
+            localStorage.setItem(GC_USER_ID, id)
+            localStorage.setItem(GC_AUTH_TOKEN, token)
+            this.$root.$data.userId = localStorage.getItem(GC_USER_ID)
+        }
+    }
 }
 </script>
 

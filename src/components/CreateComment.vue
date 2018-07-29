@@ -13,7 +13,7 @@
 
 
 <script>
-import { CREATE_COMMENT_MUTATION } from './constants/graphql'
+import { CREATE_COMMENT_MUTATION } from '../constants/graphql'
 
 export default {
     name: 'CreateComment',
