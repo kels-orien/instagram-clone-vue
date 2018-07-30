@@ -1,5 +1,5 @@
 # project: cjjq4d00e1ee40189opoksh4r
-# version: 7
+# version: 8
 
 type File @model {
   contentType: String!
@@ -15,8 +15,7 @@ type File @model {
 type User @model {
   id: ID! @isUnique
   username: String! @isUnique
-  email: String @isUnique
-  password: String
+  fullname: String
   image: String
   likes: [Like!]! @relation(name: "UsersLikes")
   posts: [Post!]! @relation(name: "UsersPosts")

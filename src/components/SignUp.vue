@@ -7,7 +7,7 @@
                <div class="gr27e">
                   <h1 class="NXVPg Szr5J  coreSpriteLoggedOutWordmark">Instagram</h1>
                   <div class="EPjEi">
-                     <form class="HmktE" method="post">
+                     <div class="HmktE">
                      <div class="-MzZI">
                         <div class="_9GP1n">
                            <div class="f0n8F "><label  class="_9nyy2">Email</label>
@@ -40,10 +40,12 @@
                            <div class="i24fI"></div>
                         </div>
                      </div>
-                     <span class="-Qhn2 _1OSdk"><button class="_5f5mN  jIbKX pm766" @click="SignUp()" disabled="">Next</button></span>
-                     </form>
+                     <span class="-Qhn2 _1OSdk"><button class="_5f5mN  jIbKX pm766" @click="SignUp()">Next</button></span>
+                     </div>
                   </div>
                </div>
+
+               <div class="gr27e"><p class="izU2O">Have an account? <a href="" @click="goToLogin()">Log in</a></p></div>
             </div>
          </article>
       </div>
@@ -53,6 +55,7 @@
 
 
 <script>
+import { GC_USER_ID, GC_AUTH_TOKEN } from '../constants/settings'
  import {CREATE_USER_MUTATION } from '../constants/graphql'
 export default {
     name: "SignUp",
@@ -88,9 +91,48 @@ export default {
         localStorage.setItem(GC_USER_ID, id)
         localStorage.setItem(GC_AUTH_TOKEN, token)
         this.$root.$data.userId = localStorage.getItem(GC_USER_ID)
+      },
+      goToLogin ()
+      {
+            this.$router.push('/Login')
       }
            
     }
     
 }
 </script>
+
+<style>
+article, div, footer, header, main, nav, section {
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    border: 0 solid #000;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+label {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+</style>

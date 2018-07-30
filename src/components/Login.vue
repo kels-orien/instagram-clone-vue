@@ -7,7 +7,7 @@
                <div class="gr27e">
                   <h1 class="NXVPg Szr5J  coreSpriteLoggedOutWordmark">Instagram</h1>
                   <div class="EPjEi">
-                     <form class="HmktE" method="post">
+                     <div class="HmktE">
                      <div class="-MzZI">
                         <div class="_9GP1n">
                            <div class="f0n8F "><label  class="_9nyy2">Email</label>
@@ -24,10 +24,11 @@
                            <div class="i24fI"></div>
                         </div>
                      </div>
-                     <span class="-Qhn2 _1OSdk"><button class="_5f5mN       jIbKX     pm766    " disabled="">Log in</button></span>
-                     </form>
+                     <span class="-Qhn2 _1OSdk"><button class="_5f5mN jIbKX pm766" @click="login()">Log in</button></span>
+                     </div>
                   </div>
                </div>
+               <div class="gr27e"><p class="izU2O">Want an account? <a href="" @click="goToSignUp()">Sign up</a></p></div>
             </div>
          </article>
       </div>
@@ -68,6 +69,9 @@ export default {
             localStorage.setItem(GC_USER_ID, id)
             localStorage.setItem(GC_AUTH_TOKEN, token)
             this.$root.$data.userId = localStorage.getItem(GC_USER_ID)
+        },
+        goToSignUp () {
+              this.$router.push('/signup')
         }
     }
 }

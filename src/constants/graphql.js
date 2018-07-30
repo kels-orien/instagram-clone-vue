@@ -36,24 +36,21 @@ export const CREATE_COMMENT_MUTATION = gql`
 `;
 
 export const CREATE_USER_MUTATION = gql`
-  mutation CreateUserMutation( $email: $fullname: String!, $username: String!, String!, $password: String!) {
+  mutation CreateUserMutation(
+    $email: String!
+    $fullname: String!
+    $username: String!
+    $password: String!
+  ) {
     createUser(
-      name: $fullname,
+      fullname: $fullname
       username: $username
-      authProvider: {
-        email: {
-          email: $email,
-          password: $password
-        }
-      }
+      authProvider: { email: { email: $email, password: $password } }
     ) {
       id
     }
 
-    signinUser(email: {
-      email: $email,
-      password: $password
-    }) {
+    signinUser(email: { email: $email, password: $password }) {
       token
       user {
         id

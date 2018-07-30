@@ -2,13 +2,19 @@ import Vue from "vue";
 import Router from "vue-router";
 import Login from "@/components/Login";
 import SignUp from "@/components/SignUp";
+import Posts from "@/components/Posts";
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: "/SignUp",
+      path: "/",
+      name: "Posts",
+      component: Posts
+    },
+    {
+      path: "/signup",
       name: "SignUp",
       component: SignUp
     },
@@ -16,11 +22,7 @@ export default new Router({
       path: "/login",
       name: "Login",
       component: Login
-    },
-    {
-      path: "/",
-      name: "Posts",
-      component: Posts
     }
-  ]
+  ],
+  mode: "history"
 });

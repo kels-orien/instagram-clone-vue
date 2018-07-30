@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    
-    <login></login>
- 
+ <router-view></router-view>
     </div>
      
 </template>
@@ -452,6 +450,22 @@ _3Laht, .o64aR {
     background: #3897f0;
     border-color: #3897f0;
     color: #fff;
+}
+.gr27e {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 10px 0;
+}
+.izU2O {
+    color: #262626;
+    font-size: 14px;
+    margin: 15px;
+    text-align: center;
+}
+.izU2O>a, .izU2O>a:active, .izU2O>a:hover, .izU2O>a:visited {
+    color: #3897f0;
 }
 input, textarea, select, button {
     text-rendering: auto;
