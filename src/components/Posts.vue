@@ -1,18 +1,24 @@
 <template>
-    <div>
-        <h4 v-if="loading">Loading...</h4>
+<section class="app">
+    <headers></headers>
+    <section class="main">
+       <h4 v-if="loading">Loading...</h4>
         <post
          v-for="post in allPosts"
          :key="post.id"
          :post="post">
          </post>
-        </div>
+    </section>
+   
+     </section> 
 </template>
 
 <script> 
 import Post from './Post';
 import  {ALL_POSTS_QUERY} from '../constants/graphql';
 import {GC_USER_ID} from '../constants/settings'
+import Headers from './Headers';
+
 export default {
     name: 'Posts',
     data () {
@@ -27,7 +33,8 @@ export default {
         }
     },
     components: {
-        Post
+        Post,
+        Headers
     },
     apollo: {
         allPosts : {
