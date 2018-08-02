@@ -13,7 +13,8 @@
 
 
 <script>
-import { CREATE_COMMENT_MUTATION } from '../constants/graphql'
+import { ALL_POSTS_QUERY, CREATE_COMMENT_MUTATION } from '../constants/graphql'
+import { GC_USER_ID} from '../constants/settings'
 
 export default {
     name: 'CreateComment',
@@ -38,11 +39,21 @@ export default {
                 text,
                 postId,
                 userId
+            },
+            update: (store,{data: { createComment}}) => {
+                this.updateStoreAfterComment(store, createComment, postId)
             }
          })
         this.text = "";
         
-      }
+      },
+      updateStoreAfterComment(store, createComment, postId) {
+          const data = store.readQuery({query: ALL_POSTS_QUERY})
+
+            const commentedPost = data.allPosts.find(post => post.id === postId)
+            commentedPost.comments = createComment.post.comments
+            store.writeQuery({ query: ALL_POSTS_QUERY, data })
+        }
     }
 }
 </script>

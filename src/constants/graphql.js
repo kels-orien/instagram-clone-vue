@@ -11,6 +11,12 @@ export const ALL_POSTS_QUERY = gql`
         username
         image
       }
+      comments {
+        text
+        postedBy {
+          username
+        }
+      }
       createdAt
       updatedAt
     }
@@ -69,5 +75,3 @@ export const SIGNIN_USER_MUTATION = gql`
     }
   }
 `;
-
-

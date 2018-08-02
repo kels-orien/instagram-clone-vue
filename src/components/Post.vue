@@ -19,8 +19,12 @@
             <img :alt="post.text" :src="post.image" />
           </div>
         </div>
-        <div class="Post-caption">
-          <strong>{{post.postedBy.username}}</strong> {{post.text}}
+        <div v-if="post.comments.length > 0">
+           <comment 
+            v-for="comment in post.comments"
+            :key="comment.id"
+            :comment="comment">
+        </comment>
         </div>
         <CreateComment :postId="post.id" :userId="post.postedBy.id">
         </CreateComment>
@@ -29,44 +33,16 @@
 
 <script>
 import CreateComment from './CreateComment';
- import { GC_USER_ID} from '../constants/settings'
- import { ALL_POSTS_QUERY, CREATE_COMMENT_MUTATION } from '../constants/graphql'
+import Comment from './Comment';
 export default {
     name: 'Post',
     props: ['post'],
     components: {
-        CreateComment
-    },
-    methods: {
-      saveComment () {
-        console.log("comment", this.text);
-        console.log("comment", this.postId);
-         console.log("comment", this.userId);
-        const {text} = this.$data
-        const userId = this.userId
-        const postId = this.postId
-        this.$apollo.mutate({
-            mutation: CREATE_COMMENT_MUTATION,
-            variables: {
-                text,
-                postId,
-                userId
-            },
-            update: (store,{data: { createComment}}) => {
-                this.updateStoreAfterComment(store, createComment, postId)
-            }
-         })
-        this.text = "";
-        
-      },
-      updateStoreAfterComment(store, createComment, postId) {
-          const data = store.readQuery({query: ALL_POSTS_QUERY})
-
-            const commentedPost = data.allPosts.find(post => post.id === postId)
-            commentedPost.comments = createComment.post.comments
-            store.writeQuery({ query: ALL_POSTS_QUERY, data })
-        }
-       
+        CreateComment,
+        Comment
+    } ,
+    created () {
+        console.log("post: ", this.post)
     }
 }
 </script>
