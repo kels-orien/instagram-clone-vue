@@ -19,6 +19,11 @@
             <img :alt="post.text" :src="post.image" />
           </div>
         </div>
+        <section class="ltpMr Slqrh">
+          <a class="fr66n tiVCN" href="#" role="button"><span class="Szr5J coreSpriteHeartOpen ">Like</span></a>
+          <a class="_15y0l OV9Wd" href="#" role="button"><span class="Szr5J coreSpriteComment">Comment</span></a>
+          <a class="wmtNn fscHb " href="#" role="button" aria-disabled="false"><span class="Szr5J coreSpriteSaveOpen   ">Save</span></a>
+        </section>
         <div v-if="post.comments.length > 0">
            <comment 
             v-for="comment in post.comments"
@@ -26,6 +31,8 @@
             :comment="comment">
         </comment>
         </div>
+        
+
         <CreateComment :postId="post.id" :userId="post.postedBy.id">
         </CreateComment>
       </article>

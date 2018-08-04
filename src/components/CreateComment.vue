@@ -40,7 +40,7 @@ export default {
                 postId,
                 userId
             },
-            update: (store,{data: { createComment}}) => {
+            update: (store, {data: { createComment}}) => {
                 this.updateStoreAfterComment(store, createComment, postId)
             }
          })
@@ -49,9 +49,8 @@ export default {
       },
       updateStoreAfterComment(store, createComment, postId) {
           const data = store.readQuery({query: ALL_POSTS_QUERY})
-
             const commentedPost = data.allPosts.find(post => post.id === postId)
-            commentedPost.comments = createComment.post.comments
+            commentedPost.comments.push(createComment)
             store.writeQuery({ query: ALL_POSTS_QUERY, data })
         }
     }

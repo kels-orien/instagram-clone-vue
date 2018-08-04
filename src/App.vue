@@ -480,5 +480,71 @@ input, textarea, select, button {
     margin: 0em;
     font: 400 13.3333px Arial;
 }
+.ltpMr {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
 
+.Slqrh {
+    margin-top: 4px;
+    padding-left: 8px;
+}
+.tiVCN {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.OV9Wd {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.wmtNn {
+    margin-left: auto;
+    float: right;
+}
+._15y0l, .fr66n, .wmtNn {
+    display: inline-block;
+}
+
+.fscHb {
+    background-color: transparent;
+    border: 0;
+    padding: 8px;
+}
+.coreSpriteHeartOpen {
+    background-position: -564px -244px; 
+    background-image: url(./assets/instagram-sprite.png);
+    width: 26px;
+    height: 23px;
+}
+.fr66n {
+    margin-left: -8px;
+}
+
+.coreSpriteComment {
+    background-position: -566px -113px; 
+    height: 24px;
+    width: 24px;
+    background-image: url(./assets/instagram-sprite.png);
+}
+.coreSpriteSaveOpen {
+    background-repeat: no-repeat;
+    background-position: -566px -425px;
+    height: 24px;
+    width: 24px;
+    background-image: url(./assets/instagram-sprite.png);
+}
+
+a, a:visited {
+    color: #003569;
+    text-decoration: none;
+}
 </style>
