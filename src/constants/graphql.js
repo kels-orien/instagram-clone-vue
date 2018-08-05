@@ -17,6 +17,14 @@ export const ALL_POSTS_QUERY = gql`
           username
         }
       }
+      likes {
+        post {
+          id
+        }
+        user {
+          id
+        }
+      }
       createdAt
       updatedAt
     }
@@ -37,6 +45,28 @@ export const CREATE_COMMENT_MUTATION = gql`
         image
       }
       createdAt
+    }
+  }
+`;
+
+export const CREATE_LIKE_MUTATION = gql`
+  mutation CreateLikeAndConnectUserPost($postId: ID!, $userId: ID!) {
+    createLike(post: $postId, user: $userId) {
+      id
+      post {
+        id
+      }
+      user {
+        id
+      }
+    }
+  }
+`;
+
+export const DELETE_LIKE_MUTATION = gql`
+  mutation DeleteLikeFromPost($likeId: ID!) {
+    deleteLike(id: $likeId) {
+      id
     }
   }
 `;

@@ -20,9 +20,11 @@
           </div>
         </div>
         <section class="ltpMr Slqrh">
-          <a class="fr66n tiVCN" href="#" role="button"><span class="Szr5J coreSpriteHeartOpen ">Like</span></a>
+          <a v-if="likeState" class="fr66n tiVCN" @click="likePost()" href="#" role="button"><span class="Szr5J coreSpriteHeartOpen ">Like</span></a>
+          <a v-else class="fr66n tiVCN" href="#" @click="likePost()" role="button"><span class="Szr5J coreSpriteHeart">Like</span></a>
           <a class="_15y0l OV9Wd" href="#" role="button"><span class="Szr5J coreSpriteComment">Comment</span></a>
-          <a class="wmtNn fscHb " href="#" role="button" aria-disabled="false"><span class="Szr5J coreSpriteSaveOpen   ">Save</span></a>
+          <a  v-if="saveState" class="wmtNn fscHb " @click="savePost()"  href="#" role="button" aria-disabled="false"><span class="Szr5J coreSpriteSaveOpen">Save</span></a>
+          <a v-else class="wmtNn fscHb " href="#" @click="savePost()"  role="button" aria-disabled="false"><span class="Szr5J coreSpriteSave">Save</span></a>
         </section>
         <div v-if="post.comments.length > 0">
            <comment 
@@ -39,18 +41,51 @@
 </template>
 
 <script>
+import {CREATE_LIKE_MUTATION, DELETE_LIKE_MUTATION } from '../constants/graphql'
 import CreateComment from './CreateComment';
 import Comment from './Comment';
 export default {
     name: 'Post',
     props: ['post'],
+    data () {
+       return {
+         likeState:true,
+         saveState:true
+       }
+    },
+     created () {
+        console.log("post: ", this.post)
+    },
     components: {
         CreateComment,
         Comment
-    } ,
-    created () {
-        console.log("post: ", this.post)
+    },
+    methods: {
+      likePost () {
+        this.likeState = false;
+         this.$apollo.mutate({
+            mutation: CREATE_LIKE_MUTATION,
+            variables: {
+                postId,
+                userId
+            },
+            update: (store, {data: { createLike}}) => {
+                this.updateStoreAfterLike(store, createLike, postId)
+            }
+         })
+        this.text = "";
+      },
+      updateStoreAfterLike(store, createLike, postId) {
+          const data = store.readQuery({query: ALL_POSTS_QUERY})
+            const likedPost = data.allPosts.find(post => post.id === postId)
+            likedPost.likes.push(createLike)
+            store.writeQuery({ query: ALL_POSTS_QUERY, data })
+        },
+      savePost () {
+        this.saveState = false;
+      }
     }
+   
 }
 </script>
 

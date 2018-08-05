@@ -80,7 +80,6 @@ textarea {
 .Nav-brand-logo {
   display: block;
   background-position: -98px -317px;
-  background-image: url(./assets/instagram-sprite.png);
   background-repeat: no-repeat;
   height: 35px;
   width: 176px;
@@ -280,13 +279,6 @@ _3Laht, .o64aR {
     overflow: hidden;
     text-indent: 110%;
     white-space: nowrap;
-}
-.coreSpriteLoggedOutWordmark, .coreSpriteMobileNavDirect {
-    background-repeat: no-repeat;
-    background-image: url(./assets/instagram-sprite.png);
-    background-position: -99px -264px; 
-    width: 174px;
-    height: 51px;
 }
 
 .EPjEi {
@@ -521,28 +513,38 @@ input, textarea, select, button {
 }
 .coreSpriteHeartOpen {
     background-position: -564px -244px; 
-    background-image: url(./assets/instagram-sprite.png);
     width: 26px;
     height: 23px;
 }
 .fr66n {
     margin-left: -8px;
 }
-
+.coreSpriteComment, .coreSpriteHeartOpen, .coreSpriteSaveOpen, .coreSpriteHeart,  .Nav-brand-logo, .coreSpriteSave{
+    background-image: url(./assets/instagram-sprite.png);
+}
 .coreSpriteComment {
     background-position: -566px -113px; 
     height: 24px;
     width: 24px;
-    background-image: url(./assets/instagram-sprite.png);
+    
 }
 .coreSpriteSaveOpen {
     background-repeat: no-repeat;
     background-position: -566px -425px;
     height: 24px;
     width: 24px;
-    background-image: url(./assets/instagram-sprite.png);
 }
-
+.coreSpriteSave {
+    background-repeat: no-repeat;
+    background-position: -131px -552px; 
+    width: 24px;
+    height: 24px;
+}
+.coreSpriteHeart {
+    background-position: -564px -216px; 
+    width: 29px;
+    height: 25px;
+}
 a, a:visited {
     color: #003569;
     text-decoration: none;
