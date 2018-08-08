@@ -18,6 +18,7 @@ export const ALL_POSTS_QUERY = gql`
         }
       }
       likes {
+        id
         post {
           id
         }
@@ -51,7 +52,7 @@ export const CREATE_COMMENT_MUTATION = gql`
 
 export const CREATE_LIKE_MUTATION = gql`
   mutation CreateLikeAndConnectUserPost($postId: ID!, $userId: ID!) {
-    createLike(post: $postId, user: $userId) {
+    createLike(postId: $postId, userId: $userId) {
       id
       post {
         id

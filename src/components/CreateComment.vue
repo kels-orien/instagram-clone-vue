@@ -2,7 +2,7 @@
     <div class="eo2As">
          <section class="sH9wk _JgwE">
         <form class="X7cDz">
-            <textarea aria-label="Add a comment…" placeholder="Add a comment…" @keydown.enter.prevent="saveComment"  v-model="text" class="Ypffh">
+            <textarea aria-label="Add a comment…" ref="comment" placeholder="Add a comment…" @keydown.enter.prevent="saveComment"  v-model="text" class="Ypffh">
             </textarea>
             
             </form>
@@ -18,12 +18,19 @@ import { GC_USER_ID} from '../constants/settings'
 
 export default {
     name: 'CreateComment',
-    props: ['postId', 'userId'],
+    props: ['postId', 'userId', 'focus'],
     data () {
         return {
             loading: 0,
             text:""
         }
+    },
+    beforeUpdate () {
+            if (this.focus ===true )
+            {
+                 this.$refs.comment.focus();
+                 //this.focus === false;
+            }
     },
     methods: {
       saveComment () {

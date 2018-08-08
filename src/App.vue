@@ -511,6 +511,40 @@ input, textarea, select, button {
     border: 0;
     padding: 8px;
 }
+
+.EDfFK {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+.ygqzn {
+    margin-bottom: 8px;
+}
+.HbPOm {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+}
+.cqXBL, .cqXBL:visited, .y9v3U {
+    color: #262626;
+}
+.y9v3U {
+    display: block;
+}
+.zV_Nj, .zV_Nj:visited {
+    font-weight: 600;
+    color: #262626;
+}
 .coreSpriteHeartOpen {
     background-position: -564px -244px; 
     width: 26px;
