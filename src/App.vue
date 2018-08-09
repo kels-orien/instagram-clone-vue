@@ -124,10 +124,10 @@ textarea {
   max-height: 900px;
 }
 
-.Post-caption {
+.Post-comment {
   padding: 16px 16px;
 }
-.Post-caption strong {
+.Post-comment strong {
   font-family: 'PT Sans', sans-serif;
   font-weight: bold;
 }

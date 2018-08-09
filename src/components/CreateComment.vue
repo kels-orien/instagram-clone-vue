@@ -1,11 +1,11 @@
 <template>
     <div class="eo2As">
          <section class="sH9wk _JgwE">
-        <form class="X7cDz">
-            <textarea aria-label="Add a comment…" ref="comment" placeholder="Add a comment…" @keydown.enter.prevent="saveComment"  v-model="text" class="Ypffh">
+        <div class="X7cDz">
+            <textarea aria-label="Add a comment…" ref="input" placeholder="Add a comment…" @keydown.enter.prevent="saveComment"  v-model="text" class="Ypffh">
             </textarea>
             
-            </form>
+            </div>
     </section >
     </div>
    
@@ -18,21 +18,17 @@ import { GC_USER_ID} from '../constants/settings'
 
 export default {
     name: 'CreateComment',
-    props: ['postId', 'userId', 'focus'],
+    props: ['postId', 'userId'],
     data () {
         return {
             loading: 0,
             text:""
         }
     },
-    beforeUpdate () {
-            if (this.focus ===true )
-            {
-                 this.$refs.comment.focus();
-                 //this.focus === false;
-            }
-    },
     methods: {
+        focus: function () {
+            this.$refs.input.focus()
+    },
       saveComment () {
         console.log("comment", this.text);
         console.log("comment", this.postId);

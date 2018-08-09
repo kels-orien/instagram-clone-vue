@@ -1,6 +1,6 @@
 <template>
    
-      <div class="Post-caption">
+      <div class="Post-comment">
           <strong>{{comment.postedBy.username}}</strong> {{comment.text}}
         </div>
 </template>

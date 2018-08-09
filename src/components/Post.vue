@@ -18,11 +18,11 @@
           </div>
         </div>
         <section class="ltpMr Slqrh">
-          <a v-if="!likeState" class="fr66n tiVCN" @click="likePost()" href="#" role="button"><span class="Szr5J coreSpriteHeartOpen ">Like</span></a>
-          <a v-else class="fr66n tiVCN" href="#" @click="unlikePost()" role="button"><span class="Szr5J coreSpriteHeart">Like</span></a>
-          <a class="_15y0l OV9Wd" href="#"  @click="setCommentFocus()" role="button"><span class="Szr5J coreSpriteComment">Comment</span></a>
-          <a  v-if="!saveState" class="wmtNn fscHb " @click="savePost()"  href="#" role="button" aria-disabled="false"><span class="Szr5J coreSpriteSaveOpen">Save</span></a>
-          <a v-else class="wmtNn fscHb " href="#" @click="savePost()"  role="button" aria-disabled="false"><span class="Szr5J coreSpriteSave">Save</span></a>
+          <a v-if="!likeState" class="fr66n tiVCN" @click="likePost()"  role="button"><span class="Szr5J coreSpriteHeartOpen ">Like</span></a>
+          <a v-else class="fr66n tiVCN"  @click="unlikePost()" role="button"><span class="Szr5J coreSpriteHeart">Like</span></a>
+          <a class="_15y0l OV9Wd"  @click="setCommentFocus()" role="button"><span class="Szr5J coreSpriteComment">Comment</span></a>
+          <a  v-if="!saveState" class="wmtNn fscHb " @click="savePost()"  role="button" aria-disabled="false"><span class="Szr5J coreSpriteSaveOpen">Save</span></a>
+          <a v-else class="wmtNn fscHb " @click="savePost()"  role="button" aria-disabled="false"><span class="Szr5J coreSpriteSave">Save</span></a>
         </section>
         <div v-if="post.likes.length > 0">
           <section class="EDfFK ygqzn">
@@ -36,9 +36,7 @@
             :comment="comment">
         </comment>
         </div>
-        
-
-        <CreateComment :postId="post.id" :userId="post.postedBy.id"  :setCommentFocus="focus">
+        <CreateComment :postId="post.id" :userId="post.postedBy.id"  ref="commentInput">
         </CreateComment>
       </article>
 </template>
@@ -76,7 +74,7 @@ export default {
     },
     methods: {
       setCommentFocus () {
-           this.focus = true;
+           this.$refs.commentInput.focus()
       },
       likePost () {
             this.likeState = true; 
@@ -106,8 +104,8 @@ export default {
             variables: {
                 likeId
             },
-            update: (store, {data: { createLike}}) => {
-                this.updateStoreAfterDelete(store, createLike, likeId)
+            update: (store) => {
+                this.updateStoreAfterDelete(store, likeId)
             }
          })
         }
@@ -121,7 +119,7 @@ export default {
             likedPost.likes.push(createLike)
             store.writeQuery({ query: ALL_POSTS_QUERY, data })
         },
-        updateStoreAfterDelete(store, createLike, likeId) {
+        updateStoreAfterDelete(store, likeId) {
           const data = store.readQuery({query: ALL_POSTS_QUERY})
           console.log("Like ID: ", likeId)
           const post = data.allPosts.find(post => post.id === this.post.id)
