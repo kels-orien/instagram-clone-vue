@@ -5,7 +5,6 @@ export const ALL_POSTS_QUERY = gql`
     allPosts {
       id
       image
-      text
       postedBy {
         id
         username

@@ -57,7 +57,6 @@ export default {
        }
     },
      created () {
-        console.log("post: ", this.post)
         if (this.post.likes.length > 0) {
            this.likeState = true;
         }
