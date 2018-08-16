@@ -1,32 +1,31 @@
 <template>
-   
       <article class="Post">
         <header>
           <div class="Post-user">
-            <div class="Post-user-avatar">
+            <div class="Post-user__avatar">
               <img :src="post.postedBy.image" :alt="post.postedBy.username" />
             </div>
-            <div class="Post-user-nickname">
+            <div class="Post-user__username">
               <span>{{post.postedBy.username}}</span> <div>
     </div>
             </div>
           </div>
         </header>
         <div class="Post-image">
-          <div class="Post-image-bg">
+          <div class="Post-image__bg">
             <img :alt="post.text" :src="post.image" />
           </div>
         </div>
-        <section class="ltpMr Slqrh">
-          <a v-if="!likeState" class="fr66n tiVCN" @click="likePost()"  role="button"><span class="Szr5J coreSpriteHeartOpen ">Like</span></a>
-          <a v-else class="fr66n tiVCN"  @click="unlikePost()" role="button"><span class="Szr5J coreSpriteHeart">Like</span></a>
-          <a class="_15y0l OV9Wd"  @click="setCommentFocus()" role="button"><span class="Szr5J coreSpriteComment">Comment</span></a>
-          <a  v-if="!saveState" class="wmtNn fscHb " @click="savePost()"  role="button" aria-disabled="false"><span class="Szr5J coreSpriteSaveOpen">Save</span></a>
-          <a v-else class="wmtNn fscHb " @click="savePost()"  role="button" aria-disabled="false"><span class="Szr5J coreSpriteSave">Save</span></a>
+        <section class="Post-icon">
+          <a v-if="!likeState" class="Post-icon__heart" @click="likePost()"  role="button"><span class="Szr5J coreSpriteHeartOpen ">Like</span></a>
+          <a v-else class="Post-icon__heart"  @click="unlikePost()" role="button"><span class="Szr5J coreSpriteHeart">Like</span></a>
+          <a class="Post-icon__comment"  @click="setCommentFocus()" role="button"><span class="Szr5J coreSpriteComment">Comment</span></a>
+          <a  v-if="!saveState" class="Post-icon__save" @click="savePost()"  role="button" aria-disabled="false"><span class="Szr5J coreSpriteSaveOpen">Save</span></a>
+          <a v-else class="Post-icon__save" @click="savePost()"  role="button" aria-disabled="false"><span class="Szr5J coreSpriteSave">Save</span></a>
         </section>
         <div v-if="post.likes.length > 0">
-          <section class="EDfFK ygqzn">
-                                  <div class="HbPOm y9v3U"><a class="zV_Nj" href=""><span>{{ likes }}</span> likes</a></div>
+          <section class="Post-likes">
+                                  <div class="Post-likes__like"><a class="show"><span>{{ likes }}</span> likes</a></div>
                                  </section>
           </div>
         <div v-if="post.comments.length > 0">
