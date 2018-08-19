@@ -59,3 +59,58 @@ export default {
     }
 }
 </script>
+
+<style>
+body, button, input, textarea {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+}
+.eo2As {
+      padding: 0 16px;
+      padding-top: 0px;
+      padding-right: 16px;
+      padding-bottom: 0px;
+      padding-left: 16px;
+  }
+
+   .sH9wk {
+      border-top: 1px solid #efefef;
+      color: #999;
+      -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+      font-size: 14px;
+      line-height: 18px;
+      min-height: 56px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      padding: 16px 0;
+  }
+  ._JgwE {
+      margin-top: 4px;
+  }
+    .Ypffh {
+    background: 0 0;
+    border: 0;
+    color: #262626;
+    font-size: inherit;
+    height: 18px;
+    max-height: 80px;
+    outline: 0;
+    padding: 0;
+    resize: none;
+}
+  X7cDz, .Ypffh {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+  }
+</style>

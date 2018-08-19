@@ -25,8 +25,8 @@
         </section>
         <div v-if="post.likes.length > 0">
           <section class="Post-likes">
-                                  <div class="Post-likes__like"><a class="show"><span>{{ likes }}</span> likes</a></div>
-                                 </section>
+              <div class="Post-likes__like"><a class="show"><span>{{ likes }}</span> likes</a></div>
+          </section>
           </div>
         <div v-if="post.comments.length > 0">
            <comment 
@@ -143,5 +143,189 @@ export default {
 </script>
 
 <style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
 
+textarea {
+    -webkit-appearance: textarea;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+    padding: 2px;
+}
+.app {
+  background: #fafafaa8;
+  min-height: 100vh;
+  min-width: 100vh;
+}
+ .main {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 120px;
+}
+
+.Post {
+  border-radius: 3px;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+  margin-bottom: 60px;
+}
+
+.Post-user {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+}
+.Post-user__avatar {
+  width: 30px;
+  height: 30px;
+}
+
+.Post-user__avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.Post-user__username {
+  margin-left: 12px;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: bold;
+}
+
+.Post-image__bg {
+  background-color: #efefef;
+}
+
+.Post-image img {
+  display: block;
+  width: 100%;
+  max-height: 900px;
+}
+
+.Post-comment {
+  padding: 16px 16px;
+}
+.Post-comment strong {
+  font-family: 'PT Sans', sans-serif;
+  font-weight: bold;
+}
+
+.Szr5J {
+      display: block;
+      overflow: hidden;
+      text-indent: 110%;
+      white-space: nowrap;
+  }
+
+
+.Post-icon {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+     margin-top: 4px;
+     padding-left: 8px;
+}
+
+.Post-icon__heart{
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 8px;
+    display: inline-block;
+}
+
+.Post-icon__comment{
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 8px;
+    display: inline-block;
+}
+
+
+.Post-icon__save {
+    background-color: transparent;
+    border: 0;
+    padding: 8px;
+    margin-left: auto;
+    float: right;
+}
+
+
+.Post-likes {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+.Post-likes__like {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    display: block;
+}
+.show, .show:visited {
+    font-weight: 600;
+    color: #262626;
+}
+.coreSpriteHeartOpen {
+    background-position: -564px -244px; 
+    width: 26px;
+    height: 23px;
+}
+
+.coreSpriteComment, .coreSpriteHeartOpen, .coreSpriteSaveOpen, .coreSpriteHeart, .coreSpriteSave{
+    background-image: url(../assets/instagram-sprite.png);
+}
+.coreSpriteComment {
+    background-position: -566px -113px; 
+    height: 24px;
+    width: 24px;
+}
+.coreSpriteSaveOpen {
+    background-repeat: no-repeat;
+    background-position: -566px -425px;
+    height: 24px;
+    width: 24px;
+}
+.coreSpriteSave {
+    background-repeat: no-repeat;
+    background-position: -131px -552px; 
+    width: 24px;
+    height: 24px;
+}
+.coreSpriteHeart {
+    background-position: -564px -216px; 
+    width: 29px;
+    height: 25px;
+}
+a, a:visited {
+    color: #003569;
+    text-decoration: none;
+}
 </style>
