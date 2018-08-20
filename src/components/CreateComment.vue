@@ -1,14 +1,12 @@
 <template>
-    <div class="eo2As">
-         <section class="sH9wk _JgwE">
-        <div class="X7cDz">
-            <textarea aria-label="Add a comment…" ref="input" placeholder="Add a comment…" @keydown.enter.prevent="saveComment"  v-model="text" class="Ypffh">
+    <div class="Post__create">
+         <section class="Post__create-comment">
+        <div class="Post__create-comment-input">
+            <textarea aria-label="Add a comment…" ref="input" placeholder="Add a comment…" @keydown.enter.prevent="saveComment"  v-model="text" class="Post__create-comment-field">
             </textarea>
-            
             </div>
     </section >
-    </div>
-   
+    </div> 
 </template>
 
 
@@ -48,7 +46,6 @@ export default {
             }
          })
         this.text = "";
-        
       },
       updateStoreAfterComment(store, createComment, postId) {
           const data = store.readQuery({query: ALL_POSTS_QUERY})
@@ -66,7 +63,7 @@ body, button, input, textarea {
     font-size: 14px;
     line-height: 18px;
 }
-.eo2As {
+.Post__create {
       padding: 0 16px;
       padding-top: 0px;
       padding-right: 16px;
@@ -74,7 +71,7 @@ body, button, input, textarea {
       padding-left: 16px;
   }
 
-   .sH9wk {
+.Post__create-comment {
       border-top: 1px solid #efefef;
       color: #999;
       -webkit-flex-shrink: 0;
@@ -88,11 +85,9 @@ body, button, input, textarea {
       -ms-flex-pack: center;
       justify-content: center;
       padding: 16px 0;
-  }
-  ._JgwE {
       margin-top: 4px;
-  }
-    .Ypffh {
+  }   
+.Post__create-comment-field {
     background: 0 0;
     border: 0;
     color: #262626;
@@ -102,8 +97,9 @@ body, button, input, textarea {
     outline: 0;
     padding: 0;
     resize: none;
-}
-  X7cDz, .Ypffh {
+} 
+   
+  Post__create-comment-input, Post__create-comment-field {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;

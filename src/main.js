@@ -1,27 +1,26 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
+//1
 import { ApolloClient } from "apollo-client";
 import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
-import {
-  SubscriptionClient,
-  addGraphQLSubscriptions
-} from "subscriptions-transport-ws";
+import { ApolloLink } from "apollo-link";
 import Vue from "vue";
 import VueApollo from "vue-apollo";
 import App from "./App";
 import router from "./router";
-import { ApolloLink } from "apollo-link";
-import { GC_USER_ID, GC_AUTH_TOKEN } from "./constants/settings";
+import { GC_AUTH_TOKEN } from "./constants/settings";
 
 Vue.config.productionTip = false;
 
+//2
 const httpLink = new HttpLink({
   // You should use an absolute URL here
   uri: "https://api.graph.cool/simple/v1/cjjq4d00e1ee40189opoksh4r"
 });
 
+//3
 const authMiddleware = new ApolloLink((operation, forward) => {
   // add the authorization to the headers
   const token = localStorage.getItem(GC_AUTH_TOKEN);
@@ -34,6 +33,7 @@ const authMiddleware = new ApolloLink((operation, forward) => {
   return forward(operation);
 });
 
+//4
 const apolloClient = new ApolloClient({
   // 2
   link: authMiddleware.concat(httpLink),
@@ -44,6 +44,7 @@ const apolloClient = new ApolloClient({
 // 5
 Vue.use(VueApollo);
 
+//6
 const apolloProvider = new VueApollo({
   defaultClient: apolloClient,
   defaultOptions: {

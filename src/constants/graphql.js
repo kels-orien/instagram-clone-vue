@@ -71,30 +71,6 @@ export const DELETE_LIKE_MUTATION = gql`
   }
 `;
 
-export const CREATE_USER_MUTATION = gql`
-  mutation CreateUserMutation(
-    $email: String!
-    $fullname: String!
-    $username: String!
-    $password: String!
-  ) {
-    createUser(
-      fullname: $fullname
-      username: $username
-      authProvider: { email: { email: $email, password: $password } }
-    ) {
-      id
-    }
-
-    signinUser(email: { email: $email, password: $password }) {
-      token
-      user {
-        id
-      }
-    }
-  }
-`;
-
 export const SIGNIN_USER_MUTATION = gql`
   mutation SigninUserMutation($email: String!, $password: String!) {
     signinUser(email: { email: $email, password: $password }) {

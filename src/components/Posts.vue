@@ -45,5 +45,24 @@ export default {
 }
 </script>
 
+<style>
+.app {
+  background: #fafafaa8;
+  min-height: 100vh;
+  min-width: 100vh;
+}
+
+.main {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 120px;
+}
+
+body, button, input, textarea {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+}
+</style>
 
 

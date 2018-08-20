@@ -1,31 +1,31 @@
 <template>
       <article class="Post">
         <header>
-          <div class="Post-user">
-            <div class="Post-user__avatar">
+          <div class="Post__user">
+            <div class="Post__user--avatar">
               <img :src="post.postedBy.image" :alt="post.postedBy.username" />
             </div>
-            <div class="Post-user__username">
+            <div class="Post__user--username">
               <span>{{post.postedBy.username}}</span> <div>
     </div>
             </div>
           </div>
         </header>
-        <div class="Post-image">
-          <div class="Post-image__bg">
+        <div class="Post__image">
+          <div class="Post__image--bg">
             <img :alt="post.text" :src="post.image" />
           </div>
         </div>
-        <section class="Post-icon">
-          <a v-if="!likeState" class="Post-icon__heart" @click="likePost()"  role="button"><span class="Szr5J coreSpriteHeartOpen ">Like</span></a>
-          <a v-else class="Post-icon__heart"  @click="unlikePost()" role="button"><span class="Szr5J coreSpriteHeart">Like</span></a>
-          <a class="Post-icon__comment"  @click="setCommentFocus()" role="button"><span class="Szr5J coreSpriteComment">Comment</span></a>
-          <a  v-if="!saveState" class="Post-icon__save" @click="savePost()"  role="button" aria-disabled="false"><span class="Szr5J coreSpriteSaveOpen">Save</span></a>
-          <a v-else class="Post-icon__save" @click="savePost()"  role="button" aria-disabled="false"><span class="Szr5J coreSpriteSave">Save</span></a>
+        <section class="Post__icon">
+          <a v-if="!likeState" class="Post__icon--heart" @click="likePost()"  role="button"><span class="wrap iconHeartOpen ">Like</span></a>
+          <a v-else class="Post__icon--heart"  @click="unlikePost()" role="button"><span class="wrap iconHeart">Like</span></a>
+          <a class="Post__icon--comment"  @click="setCommentFocus()" role="button"><span class="wrap iconComment">Comment</span></a>
+          <a  v-if="!saveState" class="Post__icon--save" @click="savePost()"  role="button" aria-disabled="false"><span class="wrap iconSaveOpen">Save</span></a>
+          <a v-else class="Post__icon--save" @click="savePost()"  role="button" aria-disabled="false"><span class="wrap iconSave">Save</span></a>
         </section>
         <div v-if="post.likes.length > 0">
-          <section class="Post-likes">
-              <div class="Post-likes__like"><a class="show"><span>{{ likes }}</span> likes</a></div>
+          <section class="Post__likes">
+              <div class="Post__likes--like"><a class="show"><span>{{ likes }}</span> likes</a></div>
           </section>
           </div>
         <div v-if="post.comments.length > 0">
@@ -164,17 +164,12 @@ textarea {
     border-image: initial;
     padding: 2px;
 }
-.app {
-  background: #fafafaa8;
-  min-height: 100vh;
-  min-width: 100vh;
-}
- .main {
-  width: 50%;
-  margin: 0 auto;
-  padding-top: 120px;
+a, a:visited {
+    color: #003569;
+    text-decoration: none;
 }
 
+ 
 .Post {
   border-radius: 3px;
   border: 1px solid #e6e6e6;
@@ -182,33 +177,33 @@ textarea {
   margin-bottom: 60px;
 }
 
-.Post-user {
+.Post__user {
   display: flex;
   padding: 16px;
   align-items: center;
 }
-.Post-user__avatar {
+.Post__user--avatar {
   width: 30px;
   height: 30px;
 }
 
-.Post-user__avatar img {
+.Post__user--avatar img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
 
-.Post-user__username {
+.Post__user--username {
   margin-left: 12px;
   font-family: 'PT Sans', sans-serif;
   font-weight: bold;
 }
 
-.Post-image__bg {
+.Post__image--bg {
   background-color: #efefef;
 }
 
-.Post-image img {
+.Post__image img {
   display: block;
   width: 100%;
   max-height: 900px;
@@ -222,7 +217,7 @@ textarea {
   font-weight: bold;
 }
 
-.Szr5J {
+.wrap {
       display: block;
       overflow: hidden;
       text-indent: 110%;
@@ -230,7 +225,7 @@ textarea {
   }
 
 
-.Post-icon {
+.Post__icon {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
@@ -240,7 +235,7 @@ textarea {
      padding-left: 8px;
 }
 
-.Post-icon__heart{
+.Post__icon--heart{
     background-color: transparent;
     border: 0;
     cursor: pointer;
@@ -248,7 +243,7 @@ textarea {
     display: inline-block;
 }
 
-.Post-icon__comment{
+.Post__icon--comment{
     background-color: transparent;
     border: 0;
     cursor: pointer;
@@ -257,7 +252,7 @@ textarea {
 }
 
 
-.Post-icon__save {
+.Post__icon--save {
     background-color: transparent;
     border: 0;
     padding: 8px;
@@ -266,7 +261,7 @@ textarea {
 }
 
 
-.Post-likes {
+.Post__likes {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
@@ -279,7 +274,7 @@ textarea {
     margin-bottom: 8px;
 }
 
-.Post-likes__like {
+.Post__likes--like {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
@@ -293,39 +288,36 @@ textarea {
     font-weight: 600;
     color: #262626;
 }
-.coreSpriteHeartOpen {
+.iconHeartOpen {
     background-position: -564px -244px; 
     width: 26px;
     height: 23px;
 }
 
-.coreSpriteComment, .coreSpriteHeartOpen, .coreSpriteSaveOpen, .coreSpriteHeart, .coreSpriteSave{
+.iconComment, .iconHeartOpen, .iconSaveOpen, .iconHeart, .iconSave{
     background-image: url(../assets/instagram-sprite.png);
 }
-.coreSpriteComment {
+.iconComment {
     background-position: -566px -113px; 
     height: 24px;
     width: 24px;
 }
-.coreSpriteSaveOpen {
+.iconSaveOpen {
     background-repeat: no-repeat;
     background-position: -566px -425px;
     height: 24px;
     width: 24px;
 }
-.coreSpriteSave {
+.iconSave {
     background-repeat: no-repeat;
     background-position: -131px -552px; 
     width: 24px;
     height: 24px;
 }
-.coreSpriteHeart {
+.iconHeart {
     background-position: -564px -216px; 
     width: 29px;
     height: 25px;
 }
-a, a:visited {
-    color: #003569;
-    text-decoration: none;
-}
+
 </style>
